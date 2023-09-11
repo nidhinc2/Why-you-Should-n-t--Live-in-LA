@@ -1,0 +1,21 @@
+runtime: python311
+
+# TODO: Change the password, db, ip
+env_vars:
+  MYSQL_USER: 'root'
+  MYSQL_PASSWORD: '123qweasdzxc'
+  MYSQL_HOST: '34.123.255.146'
+  MYSQL_DATABASE: 'main-database'
+  MYSQL_SSL_CA: 'app/ssl/server-ca.pem'
+  MYSQL_SSL_CERT: 'app/ssl/client-cert.pem'
+  MYSQL_SSL_KEY: 'app/ssl/client-key.pem'
+
+handlers:
+  - url: /img
+    static_dir: static/img
+
+  - url: /script
+    static_dir: static/script
+
+  - url: /styles
+    static_dir: static/styles

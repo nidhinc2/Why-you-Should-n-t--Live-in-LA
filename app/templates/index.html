@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-align:center">{% block title %}Home{% endblock %}</h1>
+    <form method="post" id="form" style="margin:5px;text-align:center;">
+        <label for="index-kw">Keyword:</label>
+        <input id="index-kw" type="text" name="keyword" class="r-margin" value="{{ request.form['keyword'] }}" required>
+        <label for="max_entries_ct">Max Number of Records (Default 20):</label>
+        <input type="text" id="max_entries_ct" name="max_entries_ct" class="r-margin" value="{{ request.form['max_entries_ct'] }}">
+        <label for="column">Column:</label>
+        <select name="column" id="column" form="form" class="r-margin">
+            {% for option in options %}
+            <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Search">
+    </form>
+
+    <div id="map"></div>
+    <script src="{{ url_for('static', filename='script/leaflet.js') }}" /></script>
+
+    <script>
+    {% for marker in markers %}
+    L.marker([{{ marker['lat'] }}, {{ marker['lon'] }}]).addTo(map).bindPopup("{{ marker['popup'] }}");
+    {% endfor %}
+    </script>
+
+{% endblock %}

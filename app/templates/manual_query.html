@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-align:center">{% block title %}Manual SQL Query{% endblock %}</h1>
+    <form method="post">
+        <label for="content">Message Content</label>
+        <br>
+        <textarea name="content"
+                  id="content"
+                  placeholder="Type your sql query..."
+                  rows="15"
+                  cols="60"
+                  >{{ request.form['content'] }}</textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+    <p class="window-size">
+        {% for line in result %}
+            {{ line }}<br>
+        {% endfor %}
+    </p>
+<!--    <div style="overflow-x:auto;">-->
+<!--        <table class="center">-->
+<!--            <tr>-->
+<!--                {% for header in headers %}-->
+<!--                <th>{{ header }}</th>-->
+<!--                {% endfor %}-->
+<!--            </tr>-->
+
+<!--            {% for row in data %}-->
+<!--            <tr>-->
+<!--                {% for cell in row %}-->
+<!--                <td>{{ cell }}</td>-->
+<!--                {% endfor %}-->
+<!--            </tr>-->
+<!--            {% endfor %}-->
+
+<!--        </table>-->
+<!--    </div>-->
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-align:center">{% block title %}Search A Crime{% endblock %}</h1>
+    <form method="post">
+        <label for="q1">Find the number of crimes that have happened till date at all locations:</label><br><br>
+        <input type="submit" id="q1" name="q1" value="Perform Query"><br><br>
+        <hr>
+
+        <label for="q2">Find all the crimes that used weapon Strong-Arm (Weapon Code 400) AND weapon Rock/Object Thrown (Weapon Code 306):</label><br><br>
+        <input type="submit" id="q2" name="q2" value="Perform Query"><br><br>
+        <hr>
+
+        <label for="q3">Identify all the severe (urgent) crimes:</label><br><br>
+        <input type="submit" id="q3" name="q3" value="Perform Query"><br><br>
+        <hr>
+
+        <label for="max_entries_ct">Max Number of Entries for query (Default 200):</label><br>
+        <input type="text" id="max_entries_ct" name="max_entries_ct" value="{{ request.form['max_entries_ct'] }}"><br><br>
+
+    </form>
+
+    <br>
+    <div style="overflow-x:auto;">
+        <table class="center">
+            <tr>
+                {% for header in headers %}
+                <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+
+            {% for row in data %}
+            <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+{% endblock %}

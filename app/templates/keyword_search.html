@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-align:center">{% block title %}Keyword Search{% endblock %}</h1>
+    <form method="post" id="form">
+        <label for="keyword">Keyword:</label><br>
+        <input class="textbox" type="text" id="keyword" name="keyword" value="{{ request.form['keyword'] }}" required><br><br>
+        <label for="max_entries_ct">Max Number of Entries (Default 200):</label><br>
+        <input type="text" id="max_entries_ct" name="max_entries_ct" value="{{ request.form['max_entries_ct'] }}"><br><br>
+        <label for="column">Column:</label><br>
+        <select name="column" id="column" form="form">
+            {% for option in options %}
+            <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Search">
+    </form>
+
+    <br>
+    <div style="overflow-x:auto;">
+        <table class="center">
+            <tr>
+                {% for header in headers %}
+                <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+
+            {% for row in data %}
+            <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+{% endblock %}

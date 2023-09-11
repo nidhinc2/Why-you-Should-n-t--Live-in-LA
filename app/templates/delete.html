@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-align:center">{% block title %}Delete A Crime{% endblock %}</h1>
+    <form method="post">
+                <label for="dr_no">Division of Records Number:</label><br>
+                <input class="textbox" type="text" id="dr_no" name="dr_no" value="" required><br><br>
+                <input type="submit" value="Submit">
+    </form>
+{% endblock %}

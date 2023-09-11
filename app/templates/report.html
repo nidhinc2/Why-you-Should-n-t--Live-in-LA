@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-align:center">{% block title %}Report A Crime{% endblock %}</h1>
+    <form method="post">
+        <div class="row">
+            <div class="column">
+                <label for="dr_no">Division of Records Number:</label><br>
+                <input class="textbox" type="text" id="dr_no" placeholder="000000000" name="dr_no" value="{{ request.form['dr_no'] }}" required><br><br>
+
+                <label for="date_rptd">Date Reported:</label><br>
+                <input type="datetime-local" id="date_rptd" placeholder="2020 Jan 08 12:00:00 AM" name="date_rptd" value="{{ request.form['date_rptd'] }}"><br><br>
+
+                <label for="date_occ">Date Occurred:</label><br>
+                <input type="datetime-local" id="date_occ" placeholder="2020 Jan 08 12:00:00 AM" name="date_occ" value="{{ request.form['date_occ'] }}"><br><br>
+
+                <label for="time_occ">Time Occurred:</label><br>
+                <input class="textbox" type="text" id="time_occ" placeholder="2230" name="time_occ" value="{{ request.form['time_occ'] }}"><br><br>
+
+                <label for="area_code">Area Code:</label><br>
+                <input class="textbox" type="text" id="area_code" placeholder="03" name="area_code" value="{{ request.form['area_code'] }}"><br><br>
+
+                <label for="area_name">Area Name:</label><br>
+                <input class="textbox" type="text" id="area_name" placeholder="Southwest" name="area_name" value="{{ request.form['area_name'] }}"><br><br>
+
+                <label for="rpt_dist_no">Report District Number:</label><br>
+                <input class="textbox" type="text" id="rpt_dist_no" placeholder="0377" name="rpt_dist_no" value="{{ request.form['rpt_dist_no'] }}"><br><br>
+
+                <label for="part">Part:</label><br>
+                <input class="textbox" type="text" id="part" placeholder="2" name="part" value="{{ request.form['part'] }}"><br><br>
+
+                <label for="crm_cd">Crime Code:</label><br>
+                <input class="textbox" type="text" id="crm_cd" placeholder="624" name="crm_cd" value="{{ request.form['crm_cd'] }}"><br><br>
+
+                <label for="crm_cd_desc">Crime Code Description:</label><br>
+                <input class="textbox" type="text" id="crm_cd_desc" placeholder="BATTERY - SIMPLE ASSAULT" name="crm_cd_desc" value="{{ request.form['crm_cd_desc'] }}"><br><br>
+
+                <label for="mocodes">Modus Operandi:</label><br>
+                <input class="textbox" type="text" id="mocodes" placeholder="0444 0913" name="mocodes" value="{{ request.form['mocodes'] }}"><br><br>
+
+                <label for="vict_age">Victim Age:</label><br>
+                <input class="textbox" type="text" id="vict_age" placeholder="36" name="vict_age" value="{{ request.form['vict_age'] }}"><br><br>
+
+                <label for="vict_sex">Victim Sex:</label><br>
+                <input class="textbox" type="text" id="vict_sex" placeholder="F" name="vict_sex" value="{{ request.form['vict_sex'] }}"><br><br>
+
+                <label for="vict_descent">Victim Descent:</label><br>
+                <input class="textbox" type="text" id="vict_descent" placeholder="B" name="vict_descent" value="{{ request.form['vict_descent'] }}"><br><br>
+            </div>
+
+            <div class="column">
+                <label for="premis_cd">Premis Code:</label><br>
+                <input class="textbox" type="text" id="premis_cd" placeholder="501" name="premis_cd" value="{{ request.form['premis_cd'] }}"><br><br>
+
+                <label for="premis_desc">Premis Description:</label><br>
+                <input class="textbox" type="text" id="premis_desc" placeholder="SINGLE FAMILY DWELLING" name="premis_desc" value="{{ request.form['premis_desc'] }}"><br><br>
+
+                <label for="weapon_used_cd">Weapon Used Code:</label><br>
+                <input class="textbox" type="text" id="weapon_used_cd" placeholder="400" name="weapon_used_cd" value="{{ request.form['weapon_used_cd'] }}"><br><br>
+
+                <label for="weapon_desc">Weapon Used Description:</label><br>
+                <input class="textbox" type="text" id="weapon_desc" placeholder="STRONG-ARM (HANDS, FIST, FEET OR BODILY FORCE)" name="weapon_desc" value="{{ request.form['weapon_desc'] }}"><br><br>
+
+                <label for="status">Case Status:</label><br>
+                <input class="textbox" type="text" id="status" placeholder="AO" name="status" value="{{ request.form['status'] }}"><br><br>
+
+                <label for="status_desc">Status Description:</label><br>
+                <input class="textbox" type="text" id="status_desc" placeholder="Adult Other" name="status_desc" value="{{ request.form['status_desc'] }}"><br><br>
+
+                <label for="crime_cd_1">Crime Code 1:</label><br>
+                <input class="textbox" type="text" id="crime_cd_1" placeholder="624" name="crime_cd_1" value="{{ request.form['crime_cd_1'] }}"><br><br>
+
+                <label for="crime_cd_2">Crime Code 2:</label><br>
+                <input class="textbox" type="text" id="crime_cd_2" placeholder="" name="crime_cd_2" value="{{ request.form['crime_cd_2'] }}"><br><br>
+
+                <label for="crime_cd_3">Crime Code 3:</label><br>
+                <input class="textbox" type="text" id="crime_cd_3" placeholder="" name="crime_cd_3" value="{{ request.form['crime_cd_3'] }}"><br><br>
+
+                <label for="crime_cd_4">Crime Code 4:</label><br>
+                <input class="textbox" type="text" id="crime_cd_4" placeholder="" name="crime_cd_4" value="{{ request.form['crime_cd_4'] }}"><br><br>
+
+                <label for="location">Location:</label><br>
+                <input class="textbox" type="text" id="location" placeholder="1100 W 39TH PL" name="location" value="{{ request.form['location'] }}"><br><br>
+
+                <label for="cross_street">Cross Street:</label><br>
+                <input class="textbox" type="text" id="cross_street" placeholder="" name="cross_street" value="{{ request.form['cross_street'] }}"><br><br>
+
+                <label for="latitude">Latitude:</label><br>
+                <input class="textbox" type="text" id="latitude" placeholder="34.0141" name="latitude" value="{{ request.form['latitude'] }}"><br><br>
+
+                <label for="longitude">Longitude:</label><br>
+                <input class="textbox" type="text" id="longitude" placeholder="-118.2978" name="longitude" value="{{ request.form['longitude'] }}"><br><br>
+            </div>
+        </div>
+
+        <input class="button-62" type="submit" value="Submit">
+    </form>
+{% endblock %}
